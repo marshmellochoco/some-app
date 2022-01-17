@@ -2,6 +2,8 @@
   <img class="item__image" src="{{ item.src }}" alt="{{ item.alt }}" />
   <div class="item__detail">
     <p>{{ item.text }}</p>
-    <button class="item__detail__button">Some random button</button>
+    <a routerLink="/product/{{index}}"
+      ><button class="item__detail__button">Some random button</button></a
+    >
   </div>
 </div>

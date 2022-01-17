@@ -1,0 +1,146 @@
+$lg: 1280px;
+$md: 768px;
+$sm: 640px;
+
+@mixin content-image() {
+  width: 240px;
+  height: 240px;
+  border: 1px solid grey;
+
+  @media screen and (min-width: $md) {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+@mixin page-content() {
+  display: flex;
+  margin: 0 1rem;
+  @media screen and (min-width: $md) {
+    margin: 0 8rem;
+  }
+  @media screen and (min-width: $lg) {
+    margin: 0 16rem;
+  }
+}
+
+@mixin button($py, $px) {
+  padding: $py $px;
+  background-color: paleturquoise;
+  border: none;
+  cursor: pointer;
+}
+
+.preload {
+  animation-duration: 0s !important;
+  -webkit-animation-duration: 0s !important;
+  transition: box-shadow 0s, color 0s !important;
+}
+
+.navigation {
+  @include page-content();
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  &__logo {
+    height: 2rem;
+    cursor: pointer;
+  }
+  &__items {
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+
+    &__link {
+      animation: link_fade_in 0.25s forwards;
+      cursor: pointer;
+
+      &:hover {
+        animation: link_fade_out 0.25s forwards;
+      }
+    }
+  }
+}
+
+.content {
+  @include page-content();
+  flex-direction: column;
+  margin-bottom: 2rem !important;
+
+  &__title {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin: 4rem 0;
+    font-size: 4rem;
+    font-weight: 600;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin: 0;
+    margin-bottom: 2rem;
+  }
+
+  &__delimiter {
+    border: 1px solid lightgreen;
+    width: 100%;
+  }
+
+  &__words {
+    &__text {
+      &__paragraph {
+        text-align: justify;
+        &.alter {
+          color: grey;
+        }
+
+        &__bold{
+          cursor: not-allowed;
+        }
+      }
+    }
+  }
+}
+
+// #region Animations
+@keyframes link_fade_in {
+  from {
+    color: grey;
+  }
+  to {
+    color: black;
+  }
+}
+
+@keyframes link_fade_out {
+  from {
+    color: black;
+  }
+  to {
+    color: grey;
+  }
+}
+// #endregion
+
+@keyframes hover_shadow_up {
+  from {
+    box-shadow: none;
+  }
+  to {
+    box-shadow: 1px 2px 1px 1px lightgray;
+  }
+}
+
+@keyframes hover_shadow_down {
+  from {
+    box-shadow: 1px 2px 1px 1px lightgray;
+  }
+  to {
+    box-shadow: none;
+  }
+}

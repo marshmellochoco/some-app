@@ -17,4 +17,11 @@ $sm: 640px;
 
 .content {
   @include page-content();
+  flex-direction: column;
+
+  &__image {
+    width: 360px;
+    height: 360px;
+    border: 1px solid black;
+  }
 }

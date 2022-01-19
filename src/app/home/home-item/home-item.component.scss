@@ -33,22 +33,19 @@ $sm: 640px;
 
 .item {
   display: grid;
-  grid-template-columns: 1fr 2fr;
   justify-content: space-between;
+  text-align: center;
   margin: 0;
   gap: 2rem;
   color: #808080;
-  @media screen and (min-width: $lg) {
-    margin: 0 17%;
-    grid-template-columns: 1fr 1fr;
-  }
+  justify-items: center;
 
   &.alter {
     direction: rtl;
 
     & p {
       direction: ltr;
-      text-align: right;
+      text-align: center;
     }
   }
 
@@ -69,8 +66,33 @@ $sm: 640px;
       &:hover {
         animation: hover_shadow_up 0.5s forwards;
       }
+    }
+  }
+}
 
-      @media screen and (min-width: $lg) {
+@media screen and (min-width: $sm) {
+  .item {
+    grid-template-columns: 1fr 2fr;
+    text-align: left;
+    &.alter {
+      text-align: right;
+      & p {
+        text-align: right;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $md) {
+}
+
+@media screen and (min-width: $lg) {
+  .item {
+    margin: 0 17%;
+    grid-template-columns: 1fr 1fr;
+
+    &__detail {
+      &__button {
         @include button(1rem, 1.25rem);
       }
     }

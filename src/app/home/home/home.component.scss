@@ -17,6 +17,10 @@ $sm: 640px;
   display: flex;
   margin: 0 1rem;
 
+  @media screen and (min-width: $sm) {
+    margin: 0;
+  }
+
   @media screen and (min-width: $md) {
     margin: 0 8rem;
   }

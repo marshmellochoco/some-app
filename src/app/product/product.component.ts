@@ -16,5 +16,16 @@ export class ProductComponent implements OnInit {
     })
   }
 
+  images = [{
+    src: "assets/img1.jpg",
+    alt: "space guy 1",
+  }, {
+    src: "assets/img2.jpg",
+    alt: "space guy 2",
+
+  }, {
+    src: "assets/img3.jpg",
+    alt: "space guy 3",
+  },]
 
 }

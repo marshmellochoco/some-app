@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductService } from '../services/product.service';
 
 @Component({
   selector: 'app-home',
@@ -6,24 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  items: any = [];
 
-  constructor() { }
+  constructor(public productApi: ProductService) { }
 
   ngOnInit(): void {
+    this.loadData();
   }
 
-  items = [{
-    src: "assets/img1.jpg",
-    alt: "space guy 1",
-    text: "This is just some image that I got from the internet. Nothing too special. 🎈",
-  }, {
-    src: "assets/img2.jpg",
-    alt: "space guy 2",
-    text: "This is just some image that I got from the internet. Nothing too special. ☕",
-
-  }, {
-    src: "assets/img3.jpg",
-    alt: "space guy 3",
-    text: "This is just some image that I got from the internet. Nothing too special. 🚀",
-  },]
+  loadData() {
+    return this.productApi.getProducts().subscribe((data: {}) => {
+      this.items = data
+    })
+  }
 }

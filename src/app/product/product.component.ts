@@ -27,5 +27,4 @@ export class ProductComponent implements OnInit {
     src: "assets/img3.jpg",
     alt: "space guy 3",
   },]
-
 }

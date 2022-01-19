@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+
   constructor() { }
 
   ngOnInit(): void {
@@ -25,5 +26,4 @@ export class HomeComponent implements OnInit {
     alt: "space guy 3",
     text: "This is just some image that I got from the internet. Nothing too special. 🚀",
   },]
-
 }
